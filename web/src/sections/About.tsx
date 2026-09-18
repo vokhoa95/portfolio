@@ -3,7 +3,9 @@ import "./About.css";
 export default function About() {
   return (
     <section id="about" className="hero" aria-labelledby="about-title">
-      <p className="eyebrow">MOBILE SOFTWARE ENGINEER · SINGAPORE</p>
+      <div className="hero-layout">
+      <div className="hero-copy">
+      <p className="eyebrow">MOBILE SOFTWARE ENGINEER</p>
 
       <h1 id="about-title">
         Hi, I’m Khoa.
@@ -23,17 +25,32 @@ export default function About() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          View résumé
+          View resume
         </a>
 
         <a className="button button-secondary" href="#contact">
           Get in touch
         </a>
       </div>
+      </div>
 
-      <p className="hero-background">
-        Previously at <strong>Affinidi</strong> and <strong>Padlet</strong>
-      </p>
+      <div className="hero-portrait">
+        <p className="hero-greeting">
+          Hi there!<br />
+          Hope you’re having a great day!
+        </p>
+        <div className="hero-photo-frame">
+          <img
+            className="hero-photo"
+            src={`${import.meta.env.BASE_URL}khoa-portrait.jpeg`}
+            alt="Khoa enjoying an ice cream outdoors."
+            width={2316}
+            height={3088}
+            fetchPriority="high"
+          />
+        </div>
+      </div>
+      </div>
     </section>
   );
 }

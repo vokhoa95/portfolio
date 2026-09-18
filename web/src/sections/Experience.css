@@ -1,94 +1,57 @@
-.experience {
-    padding-block: 3rem 5rem;
-    border-top: 1px solid var(--color-border);
+.journey { padding-block: 3.5rem 4rem; border-block: 2px solid var(--color-border); }
+.journey-heading h2 { margin: 0 0 2.5rem; font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.045em; }
+.journey-carousel { display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; align-items: center; gap: 1.5rem; }
+.journey-slide { display: grid; grid-template-columns: 1.3fr 1fr; align-items: center; gap: 3rem; min-width: 0; min-height: 320px; }
+.journey-copy h3 { margin: 0.4rem 0; font-size: clamp(1.65rem, 3vw, 2.3rem); line-height: 1.2; letter-spacing: -0.035em; }
+.journey-period { margin: 0; font-size: 0.9rem; font-weight: 750; color: var(--color-accent); }
+.journey-role { color: var(--color-muted); font-size: 0.9rem; }
+.journey-description { color: var(--color-muted); max-width: 43ch; font-size: 1.08rem; }
+.journey-skills { min-width: 0; padding: 1.5rem; border: 2px solid var(--color-border); border-radius: 24px 18px 26px 16px; background: #fffef9; box-shadow: 7px 7px 0 #e4edf9; }
+.journey-skills h3 { margin: 0 0 1.25rem; font-size: 1.15rem; line-height: 1.5; }
+.journey-skills-scroll { min-height: 0; }
+.journey-skills-column { min-width: 0; }
+.journey-skills-scroll:focus-visible { outline-offset: 2px; border-radius: 4px; }
+.journey-skill-group + .journey-skill-group { margin-top: 1.15rem; }
+.journey-skill-group h4 { margin: 0 0 0.5rem; color: var(--color-muted); font-size: 0.875rem; font-weight: 750; }
+.journey-skill-list { display: flex; flex-wrap: wrap; gap: 0.65rem; margin: 0; padding: 0; list-style: none; }
+.journey-skill-list li { max-width: 100%; padding: 0.45rem 0.75rem; border: 1px solid #cad9ed; border-radius: 12px; background: #edf4ff; color: var(--color-text); font-size: 0.9rem; font-weight: 650; overflow-wrap: anywhere; }
+.journey-skill-list li:nth-child(3n + 1) { background: #fff4c8; border-color: var(--color-yellow); }
+.journey-arrow { display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 2px solid var(--color-text); border-radius: 50%; color: var(--color-text); background: #fffef9; font-size: 1.5rem; cursor: pointer; box-shadow: 3px 3px 0 #d6e4fa; }
+.journey-arrow:hover { background: var(--color-yellow); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .journey-slide[data-direction="next"] { --slide-offset: 14px; }
+  .journey-slide[data-direction="previous"] { --slide-offset: -14px; }
+  .journey-slide[data-direction] > .journey-copy,
+  .journey-slide[data-direction] .journey-skills {
+    animation: company-enter 260ms ease-out;
+  }
 }
 
-.experience h2 {
-    margin: 0 0 2rem;
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    line-height: 1.2;
-    letter-spacing: -0.03em;
+@keyframes company-enter {
+  from { opacity: 0; transform: translateX(var(--slide-offset)); }
+  to { opacity: 1; transform: translateX(0); }
 }
-
-.experience-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.experience-item {
-    padding-block: 1.75rem;
-}
-
-.experience-item+.experience-item {
-    border-top: 1px solid var(--color-border);
-}
-
-.experience-heading {
+.journey-skills {
+    /* Reserve room for the sticky header, section padding and Journey heading. */
+    height: min(28rem, max(14rem, calc(100dvh - var(--header-height) - 2 * clamp(2rem, 5vh, 4rem) - 15.5rem)));
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-}
-
-.experience-heading h3 {
-    margin: 0;
-    font-size: 1.35rem;
-}
-
-.experience-role {
-    margin: 0.25rem 0 0;
-    color: var(--color-muted);
-}
-
-.experience-period {
-    margin: 0;
-    color: var(--color-muted);
-    font-size: 0.9rem;
-    white-space: nowrap;
-}
-
-.experience-description {
-    max-width: 75ch;
-    margin: 1rem 0 0;
-    color: var(--color-muted);
-}
+    flex-direction: column;
+  }
+  .journey-skills h3 { flex-shrink: 0; }
+  .journey-skills-scroll {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) #edf4ff;
+    padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+  }
 
 @media (max-width: 700px) {
-    .journey-carousel {
-        grid-template-columns: 44px minmax(0, 1fr) 44px;
-        gap: 0.5rem;
-    }
-
-    .journey-slide {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 1.25rem;
-    }
-
-    .journey-arrow {
-        width: 44px;
-        height: 44px;
-    }
-}
-
-.journey-carousel {
-    display: grid;
-    grid-template-columns: 48px minmax(0, 1fr) 48px;
-    align-items: center;
-    gap: 1rem;
-}
-
-.journey-previous {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.journey-slide {
-    grid-column: 2;
-    grid-row: 1;
-}
-
-.journey-next {
-    grid-column: 3;
-    grid-row: 1;
+  .journey-carousel { grid-template-columns: 44px minmax(0, 1fr) 44px; gap: 0.5rem; }
+  .journey-slide { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .journey-copy { min-height: 280px; overflow-wrap: anywhere; }
+  .journey-arrow { width: 44px; height: 44px; }
+  .journey-skills { height: 22rem; padding: 1rem; }
 }

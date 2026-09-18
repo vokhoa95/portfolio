@@ -1,52 +1,24 @@
 html {
+  --header-height: 88px;
   scroll-behavior: smooth;
-  scroll-padding-top: 8rem;
+  scroll-padding-top: var(--header-height);
+  scroll-snap-type: y proximity;
 }
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #ffffff;
-}
-
-.contact-section {
-  padding-block: 4rem 5rem;
-}
-
-.contact-section h2 {
-  margin: 0;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-}
-
-.contact-description {
-  max-width: 55ch;
-  margin-top: 1rem;
-  color: var(--color-muted);
-}
-
-.contact-links {
+/* Fill the visible space without clipping content on short windows. */
+main > section {
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 2rem;
-  margin-top: 1.5rem;
-}
-
-.contact-links a {
-  color: var(--color-accent);
-  font-weight: 600;
-  overflow-wrap: anywhere;
-}
-
-.contact-links a:hover {
-  text-decoration: underline;
-  text-underline-offset: 5px;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(2rem, 5vh, 4rem);
+  scroll-snap-align: start;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+    scroll-snap-type: none;
   }
 }

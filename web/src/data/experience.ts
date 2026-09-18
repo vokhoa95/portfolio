@@ -5,11 +5,21 @@ type Experience = {
   location: string;
   period: string;
   description: string;
+  skills: { category: string; items: string[] }[];
 };
 
 export const experiences: Experience[] = [
   {
     id: "affinidi",
+    skills: [
+      { category: "Languages", items: ["Dart"] },
+      { category: "Frameworks", items: ["Flutter"] },
+      { category: "State management", items: ["Riverpod", "BLoC", "Cubit"] },
+      { category: "Database & storage", items: ["Drift", "flutter_secure_storage"] },
+      { category: "Testing", items: ["flutter_test"] },
+      { category: "Architecture", items: ["Clean Architecture"] },
+      { category: "Project delivery", items: ["Agile methodology"] },
+    ],
     company: "Affinidi",
     role: "Mobile Engineer",
     location: "Singapore",
@@ -19,6 +29,12 @@ export const experiences: Experience[] = [
   },
   {
     id: "padlet",
+    skills: [
+      { category: "Languages", items: ["TypeScript"] },
+      { category: "Frameworks & styling", items: ["React Native", "Tailwind CSS"] },
+      { category: "Authentication & accessibility", items: ["OAuth", "WCAG", "VoiceOver"] },
+      { category: "Monitoring & debugging", items: ["Firebase Crashlytics", "Sentry"] },
+    ],
     company: "Padlet",
     role: "Mobile Engineer",
     location: "Singapore",
@@ -28,6 +44,11 @@ export const experiences: Experience[] = [
   },
   {
     id: "act-brain",
+    skills: [
+      { category: "Languages", items: ["Java", "Kotlin"] },
+      { category: "Development tools", items: ["Android Studio"] },
+      { category: "Database", items: ["SQLite"] },
+    ],
     company: "ACT Brain Vietnam",
     role: "Software Engineer",
     location: "Vietnam",

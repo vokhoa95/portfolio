@@ -1,8 +1,31 @@
+import { useLayoutEffect, useRef } from "react";
 import "./Header.css";
 
 export default function Header() {
+  const headerRef = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const updateHeight = () => {
+      document.documentElement.style.setProperty(
+        "--header-height",
+        `${header.getBoundingClientRect().height}px`,
+      );
+    };
+
+    updateHeight();
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(header);
+    return () => {
+      observer.disconnect();
+      document.documentElement.style.removeProperty("--header-height");
+    };
+  }, []);
+
   return (
-    <header className="site-header">
+    <header ref={headerRef} className="site-header">
       <nav className="container navigation" aria-label="Main navigation">
         <a className="brand" href="#about">
           Khoa Vo<span>.</span>

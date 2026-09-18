@@ -1,12 +1,13 @@
 .contact-section {
-    max-width: 760px;
-    margin-inline: auto;
+    position: relative;
+    width: 100%;
+    margin-inline: 0;
     padding-block: 4rem 5rem;
 }
 
 .contact-section h2 {
     margin: 0 0 2rem;
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1.2;
     letter-spacing: -0.03em;
 }
@@ -14,6 +15,17 @@
 .contact-form {
     display: grid;
     gap: 1.25rem;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 760px) 320px;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+}
+
+@media (max-width: 800px) {
+    .contact-layout { grid-template-columns: minmax(0, 1fr); }
 }
 
 .contact-fields {
@@ -36,9 +48,9 @@
     width: 100%;
     min-width: 0;
     padding: 0.85rem 1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    background: white;
+    border: 2px solid #b3c3da;
+    border-radius: 12px 15px 10px 13px;
+    background: #ffffffed;
     color: var(--color-text);
     font: inherit;
 }
@@ -59,6 +71,8 @@
 .contact-form button {
     justify-self: start;
     cursor: pointer;
+    color: var(--color-text);
+    background: var(--color-yellow);
 }
 
 .contact-note,
@@ -73,9 +87,10 @@
 }
 
 .contact-social {
+    max-width: 760px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.75rem;
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -86,7 +101,8 @@
     font-weight: 600;
 }
 
-.linkedin-link {
+.linkedin-link,
+.github-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -96,7 +112,12 @@
     color: #0a66c2;
 }
 
-.linkedin-link:hover {
+.github-link {
+    color: var(--color-text);
+}
+
+.linkedin-link:hover,
+.github-link:hover {
     background: #eef5fc;
 }
 

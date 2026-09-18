@@ -3,6 +3,7 @@ import Contact from "./sections/Contact";
 import "./App.css";
 import About from "./sections/About";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Experience />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }

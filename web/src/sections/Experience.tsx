@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { experiences } from "../data/experience";
+import LearningTrail from "../components/LearningTrail";
 import "./Experience.css";
 
 export default function Experience() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState(0);
   const experience = experiences[activeIndex];
 
   function changeSlide(direction: number) {
+    setSlideDirection(direction);
     setActiveIndex(
       (current) =>
         (current + direction + experiences.length) % experiences.length,
@@ -38,10 +41,11 @@ export default function Experience() {
         <div
           id="journey-slide"
           className="journey-slide"
+          data-direction={slideDirection > 0 ? "next" : slideDirection < 0 ? "previous" : undefined}
           aria-live="polite"
           aria-atomic="true"
         >
-          <div className="journey-copy">
+          <div className="journey-copy" key={`copy-${activeIndex}`}>
             <p className="journey-period">{experience.period}</p>
             <h3>{experience.company}</h3>
             <p className="journey-role">
@@ -50,7 +54,29 @@ export default function Experience() {
             <p className="journey-description">{experience.description}</p>
           </div>
 
-          <div className="journey-image" aria-hidden="true" />
+          <div className="journey-skills-column">
+          <LearningTrail />
+          <div className="journey-skills" key={`skills-${activeIndex}`}>
+            <h3>Skills I picked up along the way</h3>
+            <div
+              className="journey-skills-scroll"
+              tabIndex={0}
+              role="region"
+              aria-label={`Skills at ${experience.company}`}
+            >
+            {experience.skills.map((group) => (
+              <div className="journey-skill-group" key={group.category}>
+                <h4>{group.category}</h4>
+                <ul className="journey-skill-list" aria-label={group.category}>
+                  {group.items.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            </div>
+          </div>
+          </div>
         </div>
 
         <button

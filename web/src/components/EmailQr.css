@@ -1,0 +1,19 @@
+.contact-qr { position: absolute; top: 45%; right: 0; transform: translateY(-50%); width: min(100%, 320px); text-align: center; }
+.contact-qr a { display: inline-block; width: 300px; max-width: 100%; }
+.contact-qr img { display: block; width: 100%; height: auto; }
+.qr-flight { position: absolute; bottom: 100%; right: 0; display: block; width: 100%; height: auto; overflow: visible; pointer-events: none; }
+.qr-plane { transform-origin: 275px 60px; }
+
+@media (max-width: 800px) {
+  .contact-qr { position: relative; top: auto; right: auto; transform: none; justify-self: center; margin-top: 120px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .qr-flight-reveal { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  .qr-plane { opacity: 0; transform: translate(-8px, 8px) scale(0.9); }
+  .contact-qr[data-visible="true"] .qr-flight-reveal { animation: qr-draw 1.4s ease-in-out 150ms forwards; }
+  .contact-qr[data-visible="true"] .qr-plane { animation: qr-arrive 400ms ease-out 1.3s forwards; }
+}
+
+@keyframes qr-draw { to { stroke-dashoffset: 0; } }
+@keyframes qr-arrive { to { opacity: 1; transform: translate(0, 0) scale(1); } }
