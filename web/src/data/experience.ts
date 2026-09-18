@@ -15,10 +15,13 @@ export const experiences: Experience[] = [
       { category: "Languages", items: ["Dart"] },
       { category: "Frameworks", items: ["Flutter"] },
       { category: "State management", items: ["Riverpod", "BLoC", "Cubit"] },
-      { category: "Database & storage", items: ["Drift", "flutter_secure_storage"] },
+      {
+        category: "Database & storage",
+        items: ["Drift", "flutter_secure_storage"],
+      },
       { category: "Testing", items: ["flutter_test"] },
       { category: "Architecture", items: ["Clean Architecture"] },
-      { category: "Project delivery", items: ["Agile methodology"] },
+      { category: "Project management", items: ["Agile methodology"] },
     ],
     company: "Affinidi",
     role: "Mobile Engineer",
@@ -31,9 +34,18 @@ export const experiences: Experience[] = [
     id: "padlet",
     skills: [
       { category: "Languages", items: ["TypeScript"] },
-      { category: "Frameworks & styling", items: ["React Native", "Tailwind CSS"] },
-      { category: "Authentication & accessibility", items: ["OAuth", "WCAG", "VoiceOver"] },
-      { category: "Monitoring & debugging", items: ["Firebase Crashlytics", "Sentry"] },
+      {
+        category: "Frameworks & styling",
+        items: ["React Native", "Tailwind CSS"],
+      },
+      {
+        category: "Authentication & accessibility",
+        items: ["OAuth", "WCAG", "VoiceOver"],
+      },
+      {
+        category: "Monitoring & debugging",
+        items: ["Firebase Crashlytics", "Sentry"],
+      },
     ],
     company: "Padlet",
     role: "Mobile Engineer",

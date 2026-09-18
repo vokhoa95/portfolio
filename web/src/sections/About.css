@@ -6,6 +6,7 @@
   gap: clamp(2rem, 5vw, 4rem);
 }
 .hero-copy { min-width: 0; }
+.hero h1 span { color: var(--color-accent); }
 .hero-portrait {
   width: min(100%, 300px);
   justify-self: center;
@@ -82,7 +83,8 @@
   .hero-portrait { width: min(100%, 270px); }
 }
 .hero h1 { margin: 1rem 0 1.5rem; font-size: clamp(3.2rem, 7vw, 5.5rem); line-height: 1.08; letter-spacing: -0.055em; font-weight: 850; }
-.hero h1 span { display: block; width: fit-content; margin-top: 1.25rem; font-size: clamp(1.65rem, 4vw, 2.7rem); line-height: 1.35; letter-spacing: -0.035em; text-decoration: underline; text-decoration-color: var(--color-yellow); text-decoration-thickness: 9px; text-underline-offset: -3px; text-decoration-skip-ink: none; }
+.hero-intro { margin: 0; color: var(--color-muted); font-size: 1.2rem; }
+.hero-role { margin: 0 0 1rem; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.35; font-weight: 650; letter-spacing: -0.025em; }
 .hero-description { max-width: 60ch; font-size: 1.15rem; color: var(--color-muted); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
 .hero-background { margin-top: 2rem; color: var(--color-muted); font-size: 0.9rem; }

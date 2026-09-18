@@ -28,7 +28,7 @@ export default function Header() {
     <header ref={headerRef} className="site-header">
       <nav className="container navigation" aria-label="Main navigation">
         <a className="brand" href="#about">
-          Khoa Vo<span>.</span>
+          Khoa <span>Vo</span>
         </a>
 
         <div className="nav-links">
