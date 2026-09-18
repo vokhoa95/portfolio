@@ -2,8 +2,10 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import "./Contact.css";
 import EmailQr from "../components/EmailQr";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 export default function Contact() {
+  const sectionRef = useScrollReveal();
   const [status, setStatus] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -32,7 +34,8 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="contact-section"
+      ref={sectionRef}
+      className="contact-section scroll-reveal"
       aria-labelledby="contact-title"
     >
       <p className="eyebrow">CONTACT</p>

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { experiences } from "../data/experience";
 import LearningTrail from "../components/LearningTrail";
+import useScrollReveal from "../hooks/useScrollReveal";
 import "./Experience.css";
 
 export default function Experience() {
+  const sectionRef = useScrollReveal();
   const [activeIndex, setActiveIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState(0);
   const experience = experiences[activeIndex];
@@ -19,7 +21,8 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="journey"
+      ref={sectionRef}
+      className="journey scroll-reveal"
       aria-labelledby="journey-title"
       aria-roledescription="carousel"
     >

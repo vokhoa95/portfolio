@@ -16,6 +16,19 @@ main > section {
   scroll-snap-align: start;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-reveal[data-revealed="false"] { opacity: 0; }
+  .scroll-reveal[data-revealed="true"] {
+    animation: section-fade-in 850ms ease-out;
+  }
+  .scroll-reveal:focus-within { opacity: 1; animation: none; }
+}
+
+@keyframes section-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

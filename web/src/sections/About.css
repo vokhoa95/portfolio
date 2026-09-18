@@ -56,6 +56,15 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .hero-copy > p,
+  .hero-copy > h1 {
+    animation: about-text-fade 650ms ease-out backwards;
+  }
+  .hero-copy > .hero-intro { animation-delay: 80ms; }
+  .hero-copy > h1 { animation-delay: 200ms; }
+  .hero-copy > .hero-role { animation-delay: 320ms; }
+  .hero-copy > .hero-description { animation-delay: 440ms; }
+
   .hero-greeting {
     transform-origin: 30% 100%;
     animation: greeting-pop 550ms ease-out 150ms backwards;
@@ -71,6 +80,11 @@
     transform: translateY(-6px) rotate(0deg);
     box-shadow: 10px 14px 0 #dceafa, 0 6px 20px #15264b18;
   }
+}
+
+@keyframes about-text-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes greeting-pop {
